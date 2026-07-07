@@ -8,13 +8,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --verdigris: #3AAFA9;
+    --dark-shade: #17525A;
+    --charcoal: #294C60;
+    --charleston: #052126;
+    --pumpkin: #ED7229;
+    --smokey: #F2F2F2;
+  }
   * , *::before, *::after { box-sizing: border-box; }
-  body { margin: 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1e293b; background: #e7ebea; line-height: 1.6; }
+  body { margin: 0; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1e293b; background: var(--smokey); line-height: 1.6; }
   .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-  a { color: #0f766e; }
-
+  a { color: var(--dark-shade); }
   /* ── NAV ── */
-  nav.tabs { position: sticky; top: 0; background: #0b2a2c; z-index: 10; }
+  nav.tabs { position: sticky; top: 0; background: var(--charleston); z-index: 10; }
   nav.tabs .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 24px; overflow-x: auto; }
   .nav-logo { display: flex; align-items: center; gap: 9px; white-space: nowrap; flex-shrink: 0; }
   .nav-logo svg { flex-shrink: 0; }
@@ -22,62 +29,52 @@
   .nav-logo .lt1, .nav-logo .lt2 { color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .04em; }
   .tab-group { display: flex; gap: 4px; }
   nav.tabs button { border: none; background: none; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.65); padding: 9px 16px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
-  nav.tabs button.active { background: #14b8a6; color: #062223; }
+  nav.tabs button.active { background: var(--verdigris); color: var(--charleston); }
   nav.tabs button:hover:not(.active) { color: #fff; }
-
   section.panel { display: none; padding: 32px 0 56px; }
   section.panel.active { display: block; }
   #panel-intro.active { padding-top: 24px; }
-
   /* ── HERO ── */
-  .hero-card { position: relative; overflow: hidden; background: #0b2a2c; border-radius: 20px; padding: 32px 32px 28px; margin-bottom: 18px; }
+  .hero-card { position: relative; overflow: hidden; background: var(--charleston); border-radius: 20px; padding: 32px 32px 28px; margin-bottom: 18px; }
   .hero-decor { position: absolute; z-index: 0; right: -30px; bottom: -30px; opacity: .14; pointer-events: none; }
   .hero-card > *:not(.hero-decor) { position: relative; z-index: 1; }
-  .pill-badge { display: inline-block; background: rgba(94,234,212,.15); color: #5eead4; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; margin-bottom: 16px; }
+  .pill-badge { display: inline-block; background: rgba(58,175,169,.18); color: var(--verdigris); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; margin-bottom: 16px; }
   h1 { font-size: 34px; font-weight: 900; letter-spacing: -.02em; margin: 0 0 18px; color: #0f172a; }
   .hero-card h1 { color: #fff; }
   .lede { font-size: 16px; color: #475569; max-width: 640px; margin-bottom: 0; }
   .hero-card .lede { color: rgba(255,255,255,.72); }
   h1 + .lede, h2 + .lede { margin-top: 10px; }
   .lede + .feature-grid, .lede + .team-grid, .lede + .ladder-grid { margin-top: 20px; }
-
   .stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 24px 0 0; }
   @media (max-width: 640px) { .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   .stat-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 18px 16px; }
-  .stat-card .num { font-size: 22px; font-weight: 900; color: #5eead4; line-height: 1.1; }
+  .stat-card .num { font-size: 22px; font-weight: 900; color: var(--verdigris); line-height: 1.1; }
   .stat-card .lbl { font-size: 12px; color: rgba(255,255,255,.65); margin-top: 6px; }
-
   /* ── IMPACT BANNER ── */
-  .impact-banner { position: relative; overflow: hidden; background: #14b8a6; border-radius: 20px; padding: 24px 28px; display: flex; align-items: center; gap: 20px; margin: 0 0 8px; }
+  .impact-banner { position: relative; overflow: hidden; background: var(--verdigris); border-radius: 20px; padding: 24px 28px; display: flex; align-items: center; gap: 20px; margin: 0 0 8px; }
   .banner-decor { position: absolute; z-index: 0; right: -35px; top: 50%; transform: translateY(-50%); opacity: .28; pointer-events: none; }
   .impact-banner > *:not(.banner-decor) { position: relative; z-index: 1; }
   .impact-banner .num { font-size: 42px; font-weight: 900; color: #fff; line-height: 1; flex-shrink: 0; }
   .impact-banner .text strong { display: block; font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 2px; }
   .impact-banner .text span { font-size: 13px; color: rgba(255,255,255,.85); }
-
   /* ── NEXT-STEPS CALLOUT ── */
-  .callout.next-steps { background: #ecfdf9; border: 1px solid #99f0e3; color: #0f5850; border-radius: 12px; padding: 18px 20px; margin: 8px 0 0; font-size: 14px; }
-  .callout.next-steps strong { color: #0b2a2c; }
-
+  .callout.next-steps { background: rgba(58,175,169,.08); border: 1px solid rgba(58,175,169,.35); color: var(--charleston); border-radius: 12px; padding: 18px 20px; margin: 8px 0 0; font-size: 14px; }
+  .callout.next-steps strong { color: var(--charleston); }
   /* ── FEATURE CARDS (dot-bullet grid) ── */
   .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 16px; }
   .feature-card { background: #fff; border: 1px solid #dbe2e8; border-radius: 12px; padding: 18px 20px; box-shadow: 0 1px 3px rgba(15,23,42,.05); }
-  .feature-card .dot { width: 8px; height: 8px; border-radius: 50%; background: #14b8a6; display: inline-block; margin-right: 8px; flex-shrink: 0; }
+  .feature-card .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--verdigris); display: inline-block; margin-right: 8px; flex-shrink: 0; }
   .feature-card h4 { font-size: 14px; font-weight: 800; color: #0f172a; margin: 0 0 6px; display: flex; align-items: center; }
   .feature-card p { font-size: 13px; color: #475569; margin: 0; }
-
   h2 { font-size: 22px; font-weight: 800; color: #0f172a; margin: 32px 0 14px; letter-spacing: -.01em; }
   h3 { font-size: 16px; font-weight: 800; color: #0f172a; margin: 22px 0 6px; }
   p { margin: 0 0 12px; color: #334155; }
   ul { margin: 0 0 16px; padding-left: 20px; color: #334155; }
   li { margin-bottom: 6px; }
-
   .card { border: 1px solid #dbe2e8; border-radius: 12px; padding: 20px 22px; margin-bottom: 14px; background: #fff; box-shadow: 0 1px 3px rgba(15,23,42,.05); }
   .card h3 { margin-top: 0; }
-
   .callout { background: #f0f4ff; border: 1px solid #dbe3ff; border-radius: 12px; padding: 18px 20px; margin: 20px 0; font-size: 14px; color: #3730a3; }
   .callout.warn { background: #fffbeb; border-color: #fde68a; color: #92400e; }
-
   /* ── TEAM ── */
   .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 20px 0; }
   @media (max-width: 640px) { .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -91,29 +88,26 @@
   .team-card .thumb.c4 { background: #fce7f3; }
   .team-card .play-btn { width: 44px; height: 44px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(15,23,42,.18); color: #1e293b; font-size: 15px; padding-left: 3px; cursor: pointer; z-index: 1; }
   .team-card .video-label { position: absolute; bottom: 8px; left: 10px; right: 10px; font-size: 10px; color: #64748b; text-align: center; background: rgba(255,255,255,.75); border-radius: 6px; padding: 2px 4px; }
-  .team-card .badge { position: absolute; bottom: 10px; left: 10px; background: #f97316; color: #fff; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 20px; }
+  .team-card .badge { position: absolute; bottom: 10px; left: 10px; background: var(--pumpkin); color: #fff; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 20px; }
   .team-card .info { padding: 12px 14px 14px; }
   .team-card .name { font-size: 14px; font-weight: 800; color: #0f172a; margin-bottom: 2px; }
   .team-card .role { font-size: 12px; color: #64748b; }
   .team-card .cc { font-size: 10px; font-weight: 700; letter-spacing: .03em; }
-
   /* ── TABLE ── */
   table.kpi { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13px; }
   table.kpi th, table.kpi td { border: 1px solid #dbe2e8; padding: 10px 12px; text-align: left; }
   table.kpi th { background: #f8fafc; font-weight: 800; color: #475569; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
   table.kpi td.tier { font-weight: 700; }
-
   /* ── FAQ ACCORDION ── */
-  details.faq { border: 1px solid #dbe2e8; border-left: 3px solid #99f0e3; border-radius: 10px; margin-bottom: 10px; padding: 4px 18px; background: #fff; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
-  details.faq[open] { border-left-color: #14b8a6; }
+  details.faq { border: 1px solid #dbe2e8; border-left: 3px solid rgba(58,175,169,.35); border-radius: 10px; margin-bottom: 10px; padding: 4px 18px; background: #fff; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+  details.faq[open] { border-left-color: var(--verdigris); }
   details.faq summary { cursor: pointer; font-weight: 700; padding: 14px 0; color: #0f172a; list-style: none; display: flex; justify-content: space-between; align-items: center; }
   details.faq summary::-webkit-details-marker { display: none; }
   details.faq summary::after { content: '+'; font-size: 18px; color: #94a3b8; font-weight: 400; }
   details.faq[open] summary::after { content: '–'; }
   details.faq .body { padding: 0 0 16px; color: #334155; font-size: 14px; }
   details.faq .body ul { margin-bottom: 8px; }
-  .faq-group-title { display: inline-block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: #0f766e; background: rgba(20,184,166,.12); padding: 5px 12px; border-radius: 999px; margin: 28px 0 12px; }
-
+  .faq-group-title { display: inline-block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--dark-shade); background: rgba(58,175,169,.12); padding: 5px 12px; border-radius: 999px; margin: 28px 0 12px; }
   /* ── ASSIGNMENT ── */
   .case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 14px; align-items: start; }
   @media (max-width: 560px) { .case-grid { grid-template-columns: 1fr; } }
@@ -129,55 +123,48 @@
   .case-card.case-d { border-left-color: #16a34a; }
   .case-card.case-d .case-tag { color: #15803d; }
   .quote { border-left: 3px solid #dbe3ff; padding: 8px 14px; margin: 10px 0; font-style: italic; color: #475569; background: #f8fafc; border-radius: 0 8px 8px 0; }
-
-  .submit-btn { display: inline-block; background: #0f766e; color: #fff; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 10px; text-decoration: none; margin-top: 8px; }
-  .submit-btn:hover { background: #0d5f59; }
-
+  .submit-btn { display: inline-block; background: var(--dark-shade); color: #fff; font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 10px; text-decoration: none; margin-top: 8px; }
+  .submit-btn:hover { background: var(--charleston); }
   footer { border-top: 1px solid #dbe2e8; padding: 24px 0 40px; font-size: 12px; color: #94a3b8; }
-
   /* ── ASSIGNMENT TOP BANNERS ── */
   .eligibility-card { background: #fff; border: 1px solid #dbe2e8; border-radius: 12px; padding: 16px 20px; margin: 24px 0 14px; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
   .eligibility-card .headline { font-size: 14px; color: #0f172a; }
-  .eligibility-card .headline .dot { width: 7px; height: 7px; border-radius: 50%; background: #14b8a6; display: inline-block; margin-right: 9px; }
-  .eligibility-card .headline strong { color: #0f766e; }
+  .eligibility-card .headline .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--verdigris); display: inline-block; margin-right: 9px; }
+  .eligibility-card .headline strong { color: var(--dark-shade); }
   .eligibility-card .sub { font-size: 12px; font-style: italic; color: #94a3b8; margin: 4px 0 0 16px; }
-
-  .comp-callout { background: #0b2a2c; border-radius: 14px; padding: 20px 24px; margin: 0 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .comp-callout { background: var(--charleston); border-radius: 14px; padding: 20px 24px; margin: 0 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
   .comp-callout p { color: rgba(255,255,255,.82); font-size: 13.5px; margin: 0; }
-  .comp-callout .btn { flex-shrink: 0; background: #14b8a6; color: #062223; font-weight: 800; font-size: 13px; padding: 11px 18px; border-radius: 999px; white-space: nowrap; cursor: pointer; border: none; }
-  .comp-callout .btn:hover { background: #2dd4bf; }
+  .comp-callout .btn { flex-shrink: 0; background: var(--verdigris); color: var(--charleston); font-weight: 800; font-size: 13px; padding: 11px 18px; border-radius: 999px; white-space: nowrap; cursor: pointer; border: none; }
+  .comp-callout .btn:hover { background: var(--dark-shade); color: #fff; }
   @media (max-width: 560px) { .comp-callout { flex-direction: column; align-items: flex-start; } }
-
   /* ── ASSIGNMENT CARD ── */
   .assign-card { background: #fff; border: 1px solid #dbe2e8; border-radius: 16px; padding: 32px 32px 36px; box-shadow: 0 1px 3px rgba(15,23,42,.05); margin-bottom: 24px; }
   .assign-card h1 { font-size: 24px; margin: 0 0 12px; }
-  .assign-card h2 { color: #0f766e; font-size: 16px; text-transform: uppercase; letter-spacing: .04em; margin: 26px 0 8px; }
+  .assign-card h2 { color: var(--dark-shade); font-size: 16px; text-transform: uppercase; letter-spacing: .04em; margin: 26px 0 8px; }
   .assign-card h2:first-of-type { margin-top: 22px; }
   .assign-card h3 { font-size: 15px; margin: 18px 0 6px; }
   .assign-card .divider { border: none; border-top: 1px dashed #dbe2e8; margin: 22px 0; }
-
   /* ── CAREER LADDER ── */
   .ladder-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 18px 0; }
   @media (max-width: 640px) { .ladder-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .ladder-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #dbe2e8; border-top: 3px solid #5eead4; border-radius: 12px; padding: 18px 18px 16px; box-shadow: 0 1px 2px rgba(15,23,42,.04); min-height: 152px; }
-  .ladder-card:nth-child(2) { border-top-color: #2dd4bf; }
-  .ladder-card:nth-child(3) { border-top-color: #14b8a6; }
-  .ladder-card:nth-child(4) { border-top-color: #0f766e; }
-  .ladder-card .lvl { display: inline-block; align-self: flex-start; background: rgba(20,184,166,.12); color: #0f766e; font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; padding: 3px 10px; border-radius: 999px; margin-bottom: 12px; }
+  .ladder-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #dbe2e8; border-top: 3px solid var(--verdigris); border-radius: 12px; padding: 18px 18px 16px; box-shadow: 0 1px 2px rgba(15,23,42,.04); min-height: 152px; }
+  .ladder-card:nth-child(2) { border-top-color: var(--dark-shade); }
+  .ladder-card:nth-child(3) { border-top-color: var(--charcoal); }
+  .ladder-card:nth-child(4) { border-top-color: var(--charleston); }
+  .ladder-card .lvl { display: inline-block; align-self: flex-start; background: rgba(58,175,169,.12); color: var(--dark-shade); font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; padding: 3px 10px; border-radius: 999px; margin-bottom: 12px; }
   .ladder-card .title { font-size: 14px; font-weight: 800; color: #0f172a; line-height: 1.3; flex-grow: 1; }
   .ladder-card .meta { display: flex; flex-direction: column; gap: 3px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #f1f5f9; }
   .ladder-card .meta .time { font-size: 11px; color: #64748b; font-weight: 700; }
-  .ladder-card .meta .impact { font-size: 11px; color: #0f766e; font-weight: 700; }
-  .path-banner { background: #0b2a2c; border-radius: 14px; padding: 18px 24px; margin: 0 0 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .ladder-card .meta .impact { font-size: 11px; color: var(--dark-shade); font-weight: 700; }
+  .path-banner { background: var(--charleston); border-radius: 14px; padding: 18px 24px; margin: 0 0 20px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
   .path-banner .label { color: #fff; font-weight: 800; font-size: 13px; white-space: nowrap; }
   .path-banner .pill { background: rgba(255,255,255,.12); color: #fff; font-size: 12px; font-weight: 700; padding: 7px 14px; border-radius: 999px; }
   .path-banner .pill span { font-weight: 400; color: rgba(255,255,255,.65); }
   .journey-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 8px; }
   @media (max-width: 640px) { .journey-grid { grid-template-columns: 1fr; } }
-  .journey-card { border: 1px solid #dbe2e8; border-left: 3px solid #14b8a6; border-radius: 10px; padding: 14px 16px; background: #fff; }
+  .journey-card { border: 1px solid #dbe2e8; border-left: 3px solid var(--verdigris); border-radius: 10px; padding: 14px 16px; background: #fff; }
   .journey-card .name { font-size: 13px; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
   .journey-card .story { font-size: 12.5px; color: #475569; }
-
   /* ── VIDEO MODAL ── */
   .video-modal { display: none; position: fixed; inset: 0; background: rgba(11,42,44,.85); z-index: 100; align-items: center; justify-content: center; padding: 24px; }
   .video-modal.open { display: flex; }
@@ -188,14 +175,13 @@
 </style>
 </head>
 <body>
-
 <nav class="tabs">
   <div class="wrap">
     <div class="nav-logo">
       <svg viewBox="0 0 40 40" width="26" height="26" fill="none" aria-hidden="true">
-        <circle cx="20" cy="20" r="16" pathLength="100" stroke="#14b8a6" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="75 100" stroke-dashoffset="8"/>
-        <circle cx="20" cy="20" r="11.5" pathLength="100" stroke="#2dd4bf" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="75 100" stroke-dashoffset="8"/>
-        <circle cx="20" cy="20" r="7" pathLength="100" stroke="#5eead4" stroke-width="3" stroke-linecap="round" stroke-dasharray="72 100" stroke-dashoffset="8"/>
+        <circle cx="20" cy="20" r="16" pathLength="100" stroke="#3AAFA9" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="75 100" stroke-dashoffset="8"/>
+        <circle cx="20" cy="20" r="11.5" pathLength="100" stroke="#17525A" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="75 100" stroke-dashoffset="8"/>
+        <circle cx="20" cy="20" r="7" pathLength="100" stroke="#3AAFA9" stroke-width="3" stroke-linecap="round" stroke-dasharray="72 100" stroke-dashoffset="8"/>
       </svg>
       <div class="logo-text"><span class="lt1">VIRTUAL</span><span class="lt2">INTERNSHIPS</span></div>
     </div>
@@ -206,20 +192,18 @@
     </div>
   </div>
 </nav>
-
 <!-- ══════════════════ INTRO ══════════════════ -->
 <section class="panel active" id="panel-intro">
   <div class="wrap">
     <div class="hero-card">
       <svg class="hero-decor" width="380" height="220" viewBox="0 0 380 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M0 178 C 60 138, 120 198, 180 148 S 300 118, 380 158" stroke="#5eead4" stroke-width="2"/>
-        <path d="M0 138 C 60 98, 120 158, 180 108 S 300 78, 380 118" stroke="#5eead4" stroke-width="2"/>
-        <path d="M0 98 C 60 58, 120 118, 180 68 S 300 38, 380 78" stroke="#5eead4" stroke-width="2"/>
+        <path d="M0 178 C 60 138, 120 198, 180 148 S 300 118, 380 158" stroke="#3AAFA9" stroke-width="2"/>
+        <path d="M0 138 C 60 98, 120 158, 180 108 S 300 78, 380 118" stroke="#3AAFA9" stroke-width="2"/>
+        <path d="M0 98 C 60 58, 120 118, 180 68 S 300 38, 380 78" stroke="#3AAFA9" stroke-width="2"/>
       </svg>
       <span class="pill-badge">Introduction</span>
       <h1>Placement Success Advisor</h1>
       <p class="lede">You make sure every internship in your portfolio actually works — for the intern and the host company both. This page walks you through the role, the written assignment, and FAQs.</p>
-
       <div class="stat-grid">
         <div class="stat-card"><div class="num">100%</div><div class="lbl">remote, work from anywhere</div></div>
         <div class="stat-card"><div class="num">180–200</div><div class="lbl">internships in caseload capacity, per PSA</div></div>
@@ -227,7 +211,6 @@
         <div class="stat-card"><div class="num">81%</div><div class="lbl">internship completion rate, FY26</div></div>
       </div>
     </div>
-
     <div class="impact-banner">
       <svg class="banner-decor" width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="90" cy="90" r="85" stroke="#fff" stroke-width="2"/>
@@ -237,7 +220,6 @@
       <div class="num">~2,250</div>
       <div class="text"><strong>internships onboarded every year</strong><span>That's the scale of the portfolio you'll help support, team-wide.</span></div>
     </div>
-
     <h2>What You'll Actually Do</h2>
     <p class="lede" style="font-size:14px;">The role is part coach, part account manager, part mediator.</p>
     <div class="feature-grid">
@@ -247,7 +229,6 @@
       <div class="feature-card"><h4><span class="dot"></span>Solve problems constructively</h4><p>Address mismatched expectations, skill gaps, or underperformance with actionable plans.</p></div>
       <div class="feature-card"><h4><span class="dot"></span>Keep feedback and evaluations on track</h4><p>Maintain high programme standards and surface insights for continuous improvement.</p></div>
     </div>
-
     <h2>The Craft of a Great Placement Success Advisor</h2>
     <div class="feature-grid">
       <div class="feature-card"><h4><span class="dot"></span>Clarity</h4><p>Set transparent expectations from day one, reinforced by a consistent five-week cadence.</p></div>
@@ -256,11 +237,9 @@
       <div class="feature-card"><h4><span class="dot"></span>Mediation</h4><p>Navigate conflict with empathy, structure, and fairness.</p></div>
       <div class="feature-card"><h4><span class="dot"></span>Mentorship facilitation</h4><p>Elevate the developmental value of every internship.</p></div>
     </div>
-
     <div class="callout next-steps"><strong>New to the role?</strong> Don't worry about knowing all this yet — the FAQs tab covers support, training, tools, remote life, and compensation, and you'll meet the team there. Ready to continue? Head to the Written &amp; Video Assignment tab next.</div>
   </div>
 </section>
-
 <!-- ══════════════════ ASSIGNMENT ══════════════════ -->
 <section class="panel" id="panel-assignment">
   <div class="wrap">
@@ -268,114 +247,82 @@
       <p>If the compensation doesn't match what you're looking for, please let us know — no hard feelings. We'd hate for you to spend time on the assignment if this isn't the right fit for you.</p>
       <button class="btn" onclick="goToFaq('faq-comp-structure')">See compensation in FAQs →</button>
     </div>
-
     <div class="assign-card">
     <h1>Placement Success Advisor — Candidate Assignment</h1>
-    <p class="lede" style="font-size:14px;"><strong>Estimated time:</strong> most candidates complete this assignment in 45–60 minutes.</p>
-
+    <p class="lede" style="font-size:14px;"><strong>Estimated time:</strong> most candidates complete this assignment in 30–40 minutes.</p>
     <h2>Context</h2>
-    <p>Imagine you've just joined Virtual Internships as a Placement Success Advisor (PSA).</p>
-    <p>Every day you'll balance competing priorities across a portfolio of internships. You'll coach interns, support host companies, manage difficult conversations, and decide where your time has the biggest impact.</p>
-    <p>This exercise is designed to simulate a typical week in the role. We're interested in <strong>how you think</strong>, not whether you arrive at the same conclusions we would.</p>
-
-    <h2>Part 1 — Monday Morning</h2>
-    <p>It's 9:00am on Monday. You open your laptop and have the following placements requiring your attention. You know you won't be able to action everything immediately.</p>
-
+    <p>As a Placement Success Advisor (PSA), keeping host company supervisors current on weekly feedback is a core part of the job. Weekly feedback helps Virtual Internships monitor intern progress, identify support needs early, and ensure internship requirements are being met.</p>
+    <p>At the same time, supervisors are often balancing internships alongside their day-to-day responsibilities. When feedback stops coming in, a PSA needs to re-engage the supervisor while maintaining a positive working relationship.</p>
+    <p>One of your supervisors, David Ncube, hasn't submitted weekly feedback for his intern, Kagiso Mothibi, for two weeks (Weeks 3 and 4). You sent a friendly reminder three days ago but haven't received a response.</p>
+    <p>It's Monday morning and you're deciding how to follow up.</p>
+    <p>Below are short profiles of David and Kagiso — the kind of information you'd typically have available through LinkedIn, internal notes, and the intern's application.</p>
     <div class="case-grid">
-      <div class="case-card case-a">
-        <div class="case-tag">Case A — Falling Behind Quietly</div>
-        <div class="case-week">Week 8</div>
-        <p style="margin-bottom:0;">Sarah is completing her internship for university credit. Her weekly timesheets show she's averaging <strong>6 hours per week</strong>. Her university requires <strong>10 hours per week</strong> to receive academic credit. Neither Sarah nor her supervisor has raised any concerns.</p>
+      <div class="card">
+        <h3>Supervisor — David Ncube</h3>
+        <p><strong>Role:</strong> Operations Manager, Vantage Retail Group (Austin, Texas, USA)</p>
+        <p style="margin-bottom:4px;"><strong>Experience</strong></p>
+        <ul>
+          <li>Operations Manager, Vantage Retail Group (2021–Present)</li>
+          <li>Business Analyst, Vantage Retail Group (2018–2021)</li>
+          <li>IT Support Intern, First National Co-operative Bank (2016)</li>
+        </ul>
+        <p style="margin-bottom:4px;"><strong>Education</strong></p>
+        <ul>
+          <li>BCom Information Systems, University of Johannesburg</li>
+        </ul>
+        <p style="margin-bottom:4px;"><strong>LinkedIn About</strong></p>
+        <div class="quote" style="margin-top:0;">Started out doing IT support before moving into operations. I've spent the last few years building and supporting distributed teams across multiple time zones. Always enjoy helping early-career talent gain practical experience and confidence in the workplace.</div>
+        <p style="margin:12px 0 4px;"><strong>Internal Notes</strong></p>
+        <ul style="margin-bottom:0;">
+          <li>Has hosted three Virtual Internships interns previously.</li>
+          <li>Previous interns have reported positive experiences and supportive supervision.</li>
+          <li>Weekly feedback submissions have occasionally required reminders.</li>
+          <li>Last feedback received: Week 2.</li>
+        </ul>
       </div>
-
-      <div class="case-card case-b">
-        <div class="case-tag">Case B — Relationship Deteriorating</div>
-        <div class="case-week">Week 5</div>
-        <p>Yesterday a supervisor submitted the following feedback:</p>
-        <div class="quote">"The intern is technically capable, but communication has become inconsistent. Emails are taking days to answer and it's becoming difficult to rely on them."</div>
-        <p style="margin-bottom:0;">The intern hasn't submitted this week's feedback.</p>
-      </div>
-
-      <div class="case-card case-c">
-        <div class="case-tag">Case C — Commitment Made</div>
-        <p>Last Friday you promised an intern you'd send guidance for completing their final reflection. The reflection is due tomorrow. This morning they emailed:</p>
-        <div class="quote">"Just checking whether you've had a chance to send this through."</div>
-      </div>
-
-      <div class="case-card case-d">
-        <div class="case-tag">Case D — Scheduled Review</div>
-        <p style="margin-bottom:0;">You have a scheduled Week 5 review call at 10:00am. Neither the intern nor the supervisor has raised any concerns.</p>
+      <div class="card">
+        <h3>Intern — Kagiso Mothibi</h3>
+        <p><strong>Studying:</strong> BSc Information Technology, University of Johannesburg</p>
+        <p><strong>Current Placement:</strong> IT Support Intern, Vantage Retail Group (Week 5)</p>
+        <p style="margin-bottom:4px;"><strong>Application Summary</strong></p>
+        <div class="quote" style="margin-top:0;">IT student looking to build practical support and systems experience. Comfortable with troubleshooting, ticketing systems, and documentation. Reliable and eager to learn.</div>
+        <p style="margin:12px 0 4px;"><strong>Internal Notes</strong></p>
+        <ul style="margin-bottom:0;">
+          <li>Has attended all scheduled PSA check-ins to date.</li>
+          <li>Has spoken positively about the placement during previous conversations.</li>
+          <li>The University of Johannesburg's internship assessment window opens next week. Supervisor feedback contributes to the documentation required for assessment.</li>
+          <li>No concerns have been raised by either the intern or host company so far.</li>
+        </ul>
       </div>
     </div>
-
-    <h2>Your Tasks</h2>
-    <h3>1. Prioritisation</h3>
-    <p>Rank the four cases in the order you would action them. For each case explain:</p>
+    <h2>Your Task</h2>
+    <h3>Written Response</h3>
+    <p>Choose whichever communication channel you believe is most effective (email, LinkedIn message, or WhatsApp).</p>
+    <p>Write the follow-up message you would send to David. Write it exactly as you would send it.</p>
+    <p>There is no single correct channel or approach. We're interested in how you read the situation and what you choose to do with the information available.</p>
+    <h3>Video Reflection</h3>
+    <p><strong>Maximum 3 minutes.</strong> Please briefly talk us through:</p>
     <ul>
-      <li>Why you've prioritised it there.</li>
-      <li>What your immediate action would be.</li>
-      <li>Which case(s), if any, you're comfortable delaying, and why.</li>
+      <li>Why you chose that communication channel.</li>
+      <li>What stood out to you in the information provided.</li>
+      <li>What assumptions you deliberately avoided making.</li>
+      <li>What you were hoping to achieve beyond simply getting the feedback submitted.</li>
+      <li>How your next steps would change if David:
+        <ul>
+          <li>responded immediately,</li>
+          <li>said he had been too busy,</li>
+          <li>continued not to respond.</li>
+        </ul>
+      </li>
     </ul>
-
-    <h3>2. You Have Time to Send One Email</h3>
-    <p>Before you jump into calls, you have <strong>10 minutes</strong> available. You have time to send <strong>one</strong> email before starting your day. Choose <strong>one</strong> of the following:</p>
-    <ul>
-      <li><strong>Option A</strong> — Reply to the supervisor from Case B.</li>
-      <li><strong>Option B</strong> — Email Sarah from Case A.</li>
-      <li><strong>Option C</strong> — Reply to the intern from Case C.</li>
-    </ul>
-    <p>Write the email exactly as you would send it. There isn't one correct choice — we're interested in <strong>why</strong> you chose that stakeholder first and how you approach the conversation.</p>
-
-    <h2>Part 2 — Wednesday Morning</h2>
-    <p>It's now Wednesday. Here's what happened.</p>
-
-    <div class="case-grid">
-      <div class="case-card case-a">
-        <div class="case-tag">Case A</div>
-        <p style="margin-bottom:0;">Sarah's Academic Advisor has contacted Virtual Internships asking whether she's still on track to receive academic credit. No one has yet spoken to Sarah about her hours.</p>
-      </div>
-      <div class="case-card case-b">
-        <div class="case-tag">Case B</div>
-        <p style="margin-bottom:0;">The supervisor has emailed again requesting to speak with someone senior. They've said they're beginning to lose confidence in the placement.</p>
-      </div>
-      <div class="case-card case-c">
-        <div class="case-tag">Case C</div>
-        <p style="margin-bottom:0;">The intern never received your guidance. Their university submission deadline is today.</p>
-      </div>
-      <div class="case-card case-d">
-        <div class="case-tag">Case D</div>
-        <p style="margin-bottom:0;">Your scheduled Week 5 review went ahead. Everything was progressing well and no concerns were identified.</p>
-      </div>
-    </div>
-
-    <h2>Your Written Response</h2>
-    <p>Looking back:</p>
-    <ul>
-      <li>Would you change your Monday prioritisation?</li>
-      <li>What would you do differently now?</li>
-      <li>Would you still choose to send the same email first? Why or why not?</li>
-    </ul>
-
-    <h2>Part 3 — Video Reflection</h2>
-    <p><strong>Maximum 4 minutes.</strong> Imagine you're debriefing this week with your manager. Talk us through your thinking from Monday to Wednesday. Please cover:</p>
-    <ul>
-      <li>How you prioritised the four cases on Monday.</li>
-      <li>Why you chose to send that email before anything else.</li>
-      <li>What assumptions you made.</li>
-      <li>What changed after Wednesday's update.</li>
-      <li>Whether your priorities changed — and why.</li>
-      <li>If you were starting Monday again, what would you do differently?</li>
-    </ul>
-    <p>Camera on or screen share is completely fine. No editing or polished presentation is expected — we're simply interested in understanding how you think through competing priorities.</p>
-
+    <p>Camera on or screen share is fine. No editing or polish expected.</p>
     <h2>How to Submit</h2>
-    <p>Put your written responses into a Google Doc (sharing: "anyone with the link can view"), then click below and add both your Google Doc link and your video URL.</p>
+    <p>Put your written response into a Google Doc (sharing: "anyone with the link can view"), then click below and add both your Google Doc link and your video URL.</p>
     <hr class="divider">
     <a class="submit-btn" href="https://docs.google.com/forms/d/19iEsJ8WXWUYi0L54huZCXYgUGCR_V3S9gJ5RM1thBpQ/viewform" target="_blank" rel="noopener">Submit your assignment</a>
     </div>
   </div>
 </section>
-
 <!-- ══════════════════ FAQS ══════════════════ -->
 <section class="panel" id="panel-faqs">
   <div class="wrap">
@@ -424,7 +371,6 @@
         </div>
       </div>
     </div>
-
     <h2 style="margin-top:8px;">Your Career Progression as a PSA</h2>
     <p class="lede" style="font-size:14px;">A clear ladder with transparent expectations for judgement, ownership, and impact at every stage.</p>
     <div class="ladder-grid">
@@ -449,17 +395,13 @@
         <div class="meta"><span class="time">2+ years</span><span class="impact">Impact: Team → Organisation</span></div>
       </div>
     </div>
-
     <h2 style="margin-top:8px;">Frequently Asked Questions</h2>
     <p class="lede" style="font-size:14px;">Everything from daily life to how you're supported, measured, and paid.</p>
-
     <div class="faq-group-title">Role Overview</div>
-
     <details class="faq">
       <summary>What does a PSA do?</summary>
       <div class="body">As a Placement Success Advisor (PSA), you play a central role in ensuring both interns and host companies achieve meaningful outcomes. You will guide interns through their learning journey, support host companies in achieving their goals, and proactively address challenges to ensure smooth, productive internships. This role allows you to see the direct impact of your work on professional growth, engagement, and successful programme completions.</div>
     </details>
-
     <details class="faq">
       <summary>Key Responsibilities</summary>
       <div class="body">
@@ -472,7 +414,6 @@
         </ul>
       </div>
     </details>
-
     <details class="faq">
       <summary>Additional Responsibilities</summary>
       <div class="body">
@@ -483,9 +424,7 @@
         </ul>
       </div>
     </details>
-
     <div class="faq-group-title">Contract &amp; Compensation</div>
-
     <details class="faq">
       <summary>When does this position start, and how does the contract work?</summary>
       <div class="body">
@@ -493,7 +432,6 @@
         <p>At the end of the 3 months, there may be opportunities for long-term employment, based on your performance, alignment with our culture, and the evolving needs of the business. Many of our team members began on short-term contracts and transitioned into permanent roles after showing strong results and growth potential.</p>
       </div>
     </details>
-
     <details class="faq" id="faq-comp-structure">
       <summary>How is compensation structured for this role?</summary>
       <div class="body">
@@ -503,9 +441,7 @@
         <p>In short: PSA compensation rewards consistent, high-quality support, successful internship completions, and strong satisfaction from both interns and host companies, with opportunities to earn more as performance exceeds expectations.</p>
       </div>
     </details>
-
     <div class="faq-group-title">Daily Operations &amp; Expectations</div>
-
     <details class="faq">
       <summary>Who will I work with?</summary>
       <div class="body">
@@ -523,7 +459,6 @@
         </ul>
       </div>
     </details>
-
     <details class="faq">
       <summary>What does a typical week look like?</summary>
       <div class="body">
@@ -537,7 +472,6 @@
         <p>In essence, PSAs act as the bridge between interns and host companies — catching issues early, facilitating productive communication, and creating a positive, outcome-driven internship experience.</p>
       </div>
     </details>
-
     <details class="faq">
       <summary>What tools and technology will I be using?</summary>
       <div class="body">
@@ -550,9 +484,7 @@
         </ul>
       </div>
     </details>
-
     <div class="faq-group-title">Support, Success &amp; Growth</div>
-
     <details class="faq">
       <summary>What support will I receive?</summary>
       <div class="body">
@@ -563,7 +495,6 @@
         </ul>
       </div>
     </details>
-
     <details class="faq">
       <summary>What does success look like, and how is it measured?</summary>
       <div class="body">
@@ -587,7 +518,6 @@
         <p style="font-size:12px;color:#94a3b8;margin-bottom:0;">ME = Meets Expectations · EE = Exceeds Expectations · SNS = Sets a New Standard</p>
       </div>
     </details>
-
     <details class="faq">
       <summary>What does great look like?</summary>
       <div class="body">
@@ -599,9 +529,7 @@
         </ul>
       </div>
     </details>
-
     <div class="faq-group-title">Working Life at Virtual Internships</div>
-
     <details class="faq">
       <summary>What is the work culture like?</summary>
       <div class="body">
@@ -616,7 +544,6 @@
         <p>We are ambitious and operationally rigorous, committed to helping team members develop professionally while fostering collaboration and connection across the organisation.</p>
       </div>
     </details>
-
     <details class="faq">
       <summary>Key behaviours we value</summary>
       <div class="body">
@@ -628,14 +555,11 @@
         <p>We are results-driven rather than schedule-driven. If you thrive in a flexible, high-impact environment and are motivated by growth and mission, you will feel at home here.</p>
       </div>
     </details>
-
     <details class="faq">
       <summary>How does remote work function at VI?</summary>
       <div class="body">As a fully remote team, we prioritise clear communication, trust, and connection. You'll structure your workday with flexibility while staying accountable for meetings and collaboration across time zones. We stay highly connected through tools like Slack, Google Meet, Google Workspace, HubSpot, and Gmail, ensuring alignment, transparency, and productivity across the team. Remote work at VI gives you autonomy, visibility, and the chance to make meaningful contributions from anywhere in the world.</div>
     </details>
-
     <div class="faq-group-title">Who We're Looking For</div>
-
     <details class="faq">
       <summary>What kind of person thrives in this role?</summary>
       <div class="body">
@@ -650,7 +574,6 @@
         </ul>
       </div>
     </details>
-
     <details class="faq">
       <summary>Is this role not the right fit for me?</summary>
       <div class="body">
@@ -665,18 +588,15 @@
     </details>
   </div>
 </section>
-
 <footer>
   <div class="wrap">Virtual Internships — During-Internship Experience Team. This page is for candidates invited to the Placement Success Advisor assignment round.</div>
 </footer>
-
 <div class="video-modal" id="video-modal" onclick="closeVideoModal()">
   <div class="panel" onclick="event.stopPropagation()">
     <button class="close-btn" onclick="closeVideoModal()">✕</button>
     <iframe id="video-modal-frame" src="" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
   </div>
 </div>
-
 <script>
   const tabs = document.querySelectorAll('nav.tabs button');
   const panels = document.querySelectorAll('section.panel');
@@ -689,17 +609,14 @@
       window.scrollTo({ top: 0, behavior: 'instant' });
     });
   });
-
   function playVideo(url) {
     document.getElementById('video-modal-frame').src = url;
     document.getElementById('video-modal').classList.add('open');
   }
-
   function closeVideoModal() {
     document.getElementById('video-modal').classList.remove('open');
     document.getElementById('video-modal-frame').src = '';
   }
-
   function goToFaq(id) {
     tabs.forEach(b => b.classList.remove('active'));
     panels.forEach(p => p.classList.remove('active'));
@@ -713,6 +630,5 @@
     }
   }
 </script>
-
 </body>
 </html>
