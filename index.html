@@ -75,6 +75,20 @@
   .card h3 { margin-top: 0; }
   .callout { background: #f0f4ff; border: 1px solid #dbe3ff; border-radius: 12px; padding: 18px 20px; margin: 20px 0; font-size: 14px; color: #3730a3; }
   .callout.warn { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+  /* ── COMPENSATION CARD ── */
+  .comp-card { background: #fff; border: 1px solid #dbe2e8; border-radius: 14px; padding: 20px 22px 22px; margin: 18px 0; box-shadow: 0 1px 3px rgba(15,23,42,.05); }
+  .comp-card .comp-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .comp-card .comp-head h3 { margin: 0; font-size: 15px; font-weight: 700; color: #0f172a; }
+  .comp-card .comp-icon { width: 20px; height: 20px; border-radius: 50%; background: var(--verdigris); color: #fff; font-size: 12px; font-weight: 700; font-style: italic; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .comp-card p.comp-intro { font-size: 13.5px; color: #64748b; margin: 0 0 14px; }
+  table.comp-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.comp-table th { text-align: left; background: rgba(58,175,169,.14); color: #0f172a; font-weight: 700; font-size: 12.5px; padding: 10px 14px; border: none; }
+  table.comp-table th:first-child { border-radius: 8px 0 0 8px; }
+  table.comp-table th:last-child { border-radius: 0 8px 8px 0; }
+  table.comp-table td { padding: 10px 14px; border: none; border-bottom: 1px solid #eef2f6; color: #334155; }
+  table.comp-table tbody tr:nth-child(even) td { background: #fafbfc; }
+  table.comp-table tbody tr:last-child td { border-bottom: none; }
+  .comp-footnote { font-size: 12px; color: #94a3b8; margin: 12px 0 0; }
   /* ── TEAM ── */
   .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 20px 0; }
   @media (max-width: 640px) { .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -436,7 +450,25 @@
         <p>Being a PSA works best for those who thrive in people-based environments, as your compensation is directly tied to the primary KPIs: PSA Support Score (combined interns + host companies, measured monthly), Internship Completion Rate (measured monthly), and Internship Satisfaction Rate (measured quarterly). Alongside your base salary, you receive:</p>
         <p><strong>Monthly Commission</strong> — earned against the PSA Support Score and Internship Completion Rate, weighted 50/50, across three tiers: Meets Expectations (ME), Exceeds Expectations (EE), and Sets a New Standard (SNS). Paid the month following the performance period.</p>
         <p><strong>Quarterly Bonus</strong> — based on your Internship Satisfaction Rate over three months, reflecting the same ME/EE/SNS tiers. Paid the month after the quarter ends, provided you've completed the first three months.</p>
-        <p>In short: PSA compensation rewards consistent, high-quality support, successful internship completions, and strong satisfaction from both interns and host companies, with opportunities to earn more as performance exceeds expectations.</p>
+        <p style="margin-bottom:0;">In short: PSA compensation rewards consistent, high-quality support, successful internship completions, and strong satisfaction from both interns and host companies, with opportunities to earn more as performance exceeds expectations.</p>
+      </div>
+    </details>
+    <details class="faq" id="faq-earning-potential">
+      <summary>What is the earning potential for this role?</summary>
+      <div class="body">
+        <p>As a remote-first team, base pay is consistent across regions. Depending on your seniority, your final package will fall within the following ranges:</p>
+        <table class="comp-table">
+          <thead>
+            <tr><th>Annual base</th><th>OTE — low</th><th>OTE — mid</th><th>OTE — upper</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>$7,200</td><td>$10,000</td><td>$11,000</td><td>$12,000</td></tr>
+            <tr><td>$9,600</td><td>$12,000</td><td>$13,000</td><td>$14,000</td></tr>
+            <tr><td>$12,000</td><td>$14,000</td><td>$15,000</td><td>$16,000</td></tr>
+          </tbody>
+        </table>
+        <p class="comp-footnote">OTE = on-target earnings (base + variable), shown in USD.</p>
+        <div class="callout next-steps" style="margin-top:14px;"><strong>The base and OTE ranges above are fixed</strong> — we don't negotiate beyond them. So if these numbers don't work for you, please let us know before advancing further in the process.</div>
       </div>
     </details>
     <div class="faq-group-title">Daily Operations &amp; Expectations</div>
